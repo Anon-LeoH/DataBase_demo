@@ -3,10 +3,11 @@ import uuid
 ErrorMsg = "******\n" + "Error occur in file item.py\n" + "Please recheck your operation!\n" + "*******\n"
 
 class item(object):
-	def __init__(self, valDic):
+	def __init__(self, valDic, fileName):
 		self._id = uuid.uuid1()
 		valDic.update({"id": self._id})
 		self.vals = valDic
+        self.fileName = fileName
 	
 	def __str__(self):
 		return str(self._id) + ": " + str(self.vals)

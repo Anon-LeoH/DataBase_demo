@@ -26,10 +26,14 @@ class logServer(object):
 		self.f = open(fileDirection, "a")
 	
 	def log(self, TYPE, contentID, Content, File):
-		ID = uuid.uuid1()
-		tmpLog = log(ID, TYPE, contentID, Content, File)
-		self.logPool.append(tmpLog)
-		self.f.write(str(tmpLog) + "\n")
+		try:
+            ID = uuid.uuid1()
+		    tmpLog = log(ID, TYPE, contentID, Content, File)
+		    self.logPool.append(tmpLog)
+		    self.f.write(str(tmpLog) + "\n")
+            return True
+        except:
+            return False
 	
 	def viewAll(self):
 		tmpf = open(self.fileDirection, "r")
