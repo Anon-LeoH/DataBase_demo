@@ -1,5 +1,5 @@
 from collection import Item
-from CtoPython import *
+from tool import *
 from copy import deepcopy as dc
 
 class cachePage(object):
