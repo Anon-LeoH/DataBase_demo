@@ -6,15 +6,17 @@ import uuid
 import os
 
 class Collection(object):
-	def __init__(self, name, principles): #still need another agrvs
+	def __init__(self, name, principles, cache): #still need another agrvs
 		self.principles = principles
         self.name = name
         self.direction = dbDirection + "/" + self.name
+        self.cache = cache
         if os.path.exists(self.direction):
             raise IOError
             return
         os.mkdir(self.direction)
         self.pages = {}
+        self.marks = {}
         self.ID = uuid.uuid1()
 
     def getKey(self, item):
